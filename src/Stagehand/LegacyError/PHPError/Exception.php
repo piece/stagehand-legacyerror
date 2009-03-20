@@ -28,23 +28,23 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  *
- * @package    Stagehand_LegacyError_Exception
+ * @package    Stagehand_LegacyError
  * @copyright  2009 KUBO Atsuhiro <kubo@iteman.jp>
- * @license    http://www.opensource.org/licenses/bsd-license.php  BSD License (revised)
- * @version    GIT: $Id$
+ * @license    http://www.opensource.org/licenses/bsd-license.php  New BSD License
+ * @version    Release: @package_version@
  * @since      File available since Release 0.1.0
  */
 
-// {{{ Stagehand_LegacyError_Exception
+// {{{ Stagehand_LegacyError_PHPError_Exception
 
 /**
- * @package    Stagehand_LegacyError_Exception
+ * @package    Stagehand_LegacyError
  * @copyright  2009 KUBO Atsuhiro <kubo@iteman.jp>
- * @license    http://www.opensource.org/licenses/bsd-license.php  BSD License (revised)
+ * @license    http://www.opensource.org/licenses/bsd-license.php  New BSD License
  * @version    Release: @package_version@
  * @since      Class available since Release 0.1.0
  */
-class Stagehand_LegacyError_Exception extends Exception {}
+class Stagehand_LegacyError_PHPError_Exception extends ErrorException implements Stagehand_LegacyError_Exception_Interface {}
 
 // }}}
 

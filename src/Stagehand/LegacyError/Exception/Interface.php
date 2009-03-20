@@ -35,7 +35,7 @@
  * @since      File available since Release 0.1.0
  */
 
-// {{{ Stagehand_LegacyError_PEARErrorStack_Exception
+// {{{ Stagehand_LegacyError_Exception_Interfacex
 
 /**
  * @package    Stagehand_LegacyError
@@ -44,68 +44,7 @@
  * @version    Release: @package_version@
  * @since      Class available since Release 0.1.0
  */
-class Stagehand_LegacyError_PEARErrorStack_Exception extends Exception implements Stagehand_LegacyError_Exception_Interfacexion
-{
-
-    // {{{ properties
-
-    /**#@+
-     * @access public
-     */
-
-    /**#@-*/
-
-    /**#@+
-     * @access protected
-     */
-
-    /**#@-*/
-
-    /**#@+
-     * @access private
-     */
-
-    /**#@-*/
-
-    /**#@+
-     * @access public
-     */
-
-    // }}}
-    // {{{ __construct()
-
-    /**
-     * @param array $error
-     */
-    public function __construct(array $error)
-    {
-        $message = $error['message'];
-        if (array_key_exists('repackage', $error)) {
-            $message .= "\n" . var_export($error['repackage'], true);
-        }
-
-        parent::__construct($message, $error['code']);
-
-        $this->file = $error['context']['file'];
-        $this->line = $error['context']['line'];
-    }
-
-    /**#@-*/
-
-    /**#@+
-     * @access protected
-     */
-
-    /**#@-*/
-
-    /**#@+
-     * @access private
-     */
-
-    /**#@-*/
-
-    // }}}
-}
+interface Stagehand_LegacyError_Exception_Interface {}
 
 // }}}
 

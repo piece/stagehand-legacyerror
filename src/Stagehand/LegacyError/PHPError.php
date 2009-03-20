@@ -35,7 +35,7 @@
  * @since      File available since Release 0.1.0
  */
 
-// {{{ Stagehand_LegacyError_PEARErrorStack_Exception
+// {{{ Stagehand_LegacyError_PHPError
 
 /**
  * @package    Stagehand_LegacyError
@@ -44,7 +44,7 @@
  * @version    Release: @package_version@
  * @since      Class available since Release 0.1.0
  */
-class Stagehand_LegacyError_PEARErrorStack_Exception extends Exception implements Stagehand_LegacyError_Exception_Interfacexion
+class Stagehand_LegacyError_PHPError implements Stagehand_LegacyError_Interface
 {
 
     // {{{ properties
@@ -72,22 +72,39 @@ class Stagehand_LegacyError_PEARErrorStack_Exception extends Exception implement
      */
 
     // }}}
-    // {{{ __construct()
+    // {{{ toException()
 
     /**
-     * @param array $error
+     * @param integer $code
+     * @param string  $message
+     * @param string  $file
+     * @param integer $line
+     * @throws Stagehand_LegacyError_Exception_Interface
      */
-    public function __construct(array $error)
+    public static function toException($code, $message, $file, $line)
     {
-        $message = $error['message'];
-        if (array_key_exists('repackage', $error)) {
-            $message .= "\n" . var_export($error['repackage'], true);
-        }
+        throw new Stagehand_LegacyError_PHPError_Exception($message, 0, $code, $file, $line);
+    }
 
-        parent::__construct($message, $error['code']);
+    // }}}
+    // {{{ enableConversion()
 
-        $this->file = $error['context']['file'];
-        $this->line = $error['context']['line'];
+    /**
+     * @param integer $errorReportingLevel
+     */
+    public static function enableConversion($errorReportingLevel = E_USER_ERROR)
+    {
+        set_error_handler(array(__CLASS__, 'toException'), $errorReportingLevel);
+    }
+
+    // }}}
+    // {{{ disableConversion()
+
+    /**
+     */
+    public static function disableConversion()
+    {
+        restore_error_handler();
     }
 
     /**#@-*/
