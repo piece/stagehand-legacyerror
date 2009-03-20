@@ -44,7 +44,7 @@
  * @version    Release: @package_version@
  * @since      Class available since Release 0.1.0
  */
-class Stagehand_LegacyError_PEARErrorStack_Exception extends Exception implements Stagehand_LegacyError_Exception_Interfacexion
+class Stagehand_LegacyError_PEARErrorStack_Exception extends Exception implements Stagehand_LegacyError_Exception_Interface
 {
 
     // {{{ properties
@@ -81,7 +81,7 @@ class Stagehand_LegacyError_PEARErrorStack_Exception extends Exception implement
     {
         $message = $error['message'];
         if (array_key_exists('repackage', $error)) {
-            $message .= "\n" . var_export($error['repackage'], true);
+            $message .= "\n" . stripslashes(var_export($error['repackage'], true));
         }
 
         parent::__construct($message, $error['code']);
