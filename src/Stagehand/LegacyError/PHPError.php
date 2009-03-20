@@ -44,7 +44,7 @@
  * @version    Release: @package_version@
  * @since      Class available since Release 0.1.0
  */
-class Stagehand_LegacyError_PHPError implements Stagehand_LegacyError_Interface
+class Stagehand_LegacyError_PHPError
 {
 
     // {{{ properties

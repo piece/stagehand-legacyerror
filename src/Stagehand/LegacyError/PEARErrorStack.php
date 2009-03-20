@@ -44,7 +44,7 @@
  * @version    Release: @package_version@
  * @since      Class available since Release 0.1.0
  */
-class Stagehand_LegacyError_PEARErrorStack implements Stagehand_LegacyError_Interface
+class Stagehand_LegacyError_PEARErrorStack
 {
 
     // {{{ properties
@@ -80,7 +80,7 @@ class Stagehand_LegacyError_PEARErrorStack implements Stagehand_LegacyError_Inte
      * @param array $error
      * @throws Stagehand_LegacyError_Exception_Interfacexion
      */
-    public static function toException($error)
+    public static function toException(array $error)
     {
         throw new Stagehand_LegacyError_PEARErrorStack_Exception($error);
     }
