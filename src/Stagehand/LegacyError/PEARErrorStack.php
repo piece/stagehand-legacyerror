@@ -35,6 +35,10 @@
  * @since      File available since Release 0.1.0
  */
 
+$oldErrorReportingLevel = error_reporting(error_reporting() & ~E_STRICT);
+require_once 'PEAR/ErrorStack.php';
+error_reporting($oldErrorReportingLevel);
+
 // {{{ Stagehand_LegacyError_PEARErrorStack
 
 /**
