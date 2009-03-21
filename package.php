@@ -41,10 +41,10 @@ require_once 'PEAR.php';
 PEAR::staticPushErrorHandling(PEAR_ERROR_CALLBACK, create_function('$error', 'var_dump($error); exit();'));
 
 $releaseVersion = '0.1.0';
-$releaseStability = 'alpha';
+$releaseStability = 'beta';
 $apiVersion = '0.1.0';
-$apiStability = 'alpha';
-$notes = 'The first alpha release of Stagehand_LegacyError.';
+$apiStability = 'beta';
+$notes = 'The first beta release of Stagehand_LegacyError.';
 
 $package = new PEAR_PackageFileManager2();
 $package->setOptions(array('filelistgenerator' => 'file',
@@ -61,7 +61,7 @@ $package->setOptions(array('filelistgenerator' => 'file',
 
 $package->setPackage('Stagehand_LegacyError');
 $package->setPackageType('php');
-$package->setSummary('A utility package to convert non-exception errors to exceptions');
+$package->setSummary('A utility to convert non-exception errors to exceptions');
 $package->setDescription('Stagehand_LegacyError can be used to convert the following non-exception errors to exceptions. The following non-exception errors are supported:
 
 - A PEAR_Error object
@@ -76,7 +76,7 @@ $package->setAPIStability($apiStability);
 $package->setReleaseVersion($releaseVersion);
 $package->setReleaseStability($releaseStability);
 $package->setNotes($notes);
-$package->setPhpDep('5.1.0');
+$package->setPhpDep('5.1.0');   // ErrorException (PHP 5 >= 5.1.0)
 $package->setPearinstallerDep('1.4.3');
 $package->addMaintainer('lead', 'iteman', 'KUBO Atsuhiro', 'kubo@iteman.jp');
 $package->addGlobalReplacement('package-info', '@package_version@', 'version');
