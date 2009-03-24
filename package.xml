@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Stagehand_LegacyError</name>
+ <channel>pear.piece-framework.com</channel>
+ <summary>A utility to convert non-exception errors to exceptions</summary>
+ <description>Stagehand_LegacyError can be used to convert the following non-exception errors to exceptions. The following non-exception errors are supported:
+
+- A PEAR_Error object
+- An array which represents a PEAR_ErrorStack error
+- A PHP error
+
+Auto conversion can be enabled for each type of errors. If auto conversion is enabled, an error will be converted to an exception by the appropriate error handler when the error is raised. And also exception objects raised from this package are instance of a class which implements the Stagehand_LegacyError_Exception_Interface interface.</description>
+ <lead>
+  <name>KUBO Atsuhiro</name>
+  <user>iteman</user>
+  <email>kubo@iteman.jp</email>
+  <active>yes</active>
+ </lead>
+ <date>2009-03-24</date>
+ <time>18:17:15</time>
+ <version>
+  <release>0.1.0</release>
+  <api>0.1.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+ <notes>The first beta release of Stagehand_LegacyError.</notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <dir name="doc">
+    <file name="LICENSE" role="doc">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+   </dir> <!-- /doc -->
+   <dir name="src">
+    <dir name="Stagehand">
+     <dir name="LegacyError">
+      <dir name="Exception">
+       <file name="Interface.php" role="php">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+      </dir> <!-- /src/Stagehand/LegacyError/Exception -->
+      <dir name="PEARError">
+       <file name="Exception.php" role="php">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+      </dir> <!-- /src/Stagehand/LegacyError/PEARError -->
+      <dir name="PEARErrorStack">
+       <file name="Exception.php" role="php">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+      </dir> <!-- /src/Stagehand/LegacyError/PEARErrorStack -->
+      <dir name="PHPError">
+       <file name="Exception.php" role="php">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+      </dir> <!-- /src/Stagehand/LegacyError/PHPError -->
+      <file name="PEARError.php" role="php">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+      <file name="PEARErrorStack.php" role="php">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+      <file name="PHPError.php" role="php">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+     </dir> <!-- /src/Stagehand/LegacyError -->
+    </dir> <!-- /src/Stagehand -->
+   </dir> <!-- /src -->
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.1.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.3</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2009-03-24</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+   <notes>The first beta release of Stagehand_LegacyError.</notes>
+  </release>
+ </changelog>
+</package>
