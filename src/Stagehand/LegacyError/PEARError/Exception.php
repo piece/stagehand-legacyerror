@@ -79,11 +79,17 @@ class Stagehand_LegacyError_PEARError_Exception extends Exception implements Sta
      */
     public function __construct(PEAR_Error $error)
     {
-        parent::__construct('Type: ' . get_class($error) .
-                            ' Message: ' . $error->getMessage() .
-                            ' UserInfo: ' . $error->getUserInfo(),
+        parent::__construct($error->getMessage() . "\n" .
+                            'Type: ' . get_class($error) . "\n" .
+                            'UserInfo: ' . $error->getUserInfo(),
                             $error->getCode()
                             );
+
+        $backtrace = $error->getBacktrace();
+        if (is_array($backtrace)) {
+            $this->file = $backtrace[1]['file'];
+            $this->line = $backtrace[1]['line'];
+        }
     }
 
     /**#@-*/
