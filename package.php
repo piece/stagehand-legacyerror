@@ -40,11 +40,15 @@ require_once 'PEAR.php';
 
 PEAR::staticPushErrorHandling(PEAR_ERROR_CALLBACK, create_function('$error', 'var_dump($error); exit();'));
 
-$releaseVersion = '0.1.0';
+$releaseVersion = '0.2.0';
 $releaseStability = 'beta';
-$apiVersion = '0.1.0';
+$apiVersion = '0.2.0';
 $apiStability = 'beta';
-$notes = 'The first beta release of Stagehand_LegacyError.';
+$notes = 'A new release of Stagehand_LegacyError is now available.
+
+What\'s New in Stagehand_LegacyError 0.2.0
+
+ * Improved PEAR_Error support: __construct() has been changed so as to overwrite the $this->file and $this->line properties in the exception object with the file and line where PEAR_Error::raiseError() is called. And the message layout has been changed.';
 
 $package = new PEAR_PackageFileManager2();
 $package->setOptions(array('filelistgenerator' => 'file',
@@ -54,8 +58,7 @@ $package->setOptions(array('filelistgenerator' => 'file',
                            'packagefile'       => 'package.xml',
                            'packagedirectory'  => '.',
                            'dir_roles'         => array('doc' => 'doc',
-                                                        'src' => 'php',
-                                                        'tests' => 'test'),
+                                                        'src' => 'php'),
                            'ignore'            => array('package.php'))
                      );
 
