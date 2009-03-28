@@ -64,14 +64,14 @@ $package->setOptions(array('filelistgenerator' => 'file',
 
 $package->setPackage('Stagehand_LegacyError');
 $package->setPackageType('php');
-$package->setSummary('A utility to convert non-exception errors to exceptions');
-$package->setDescription('Stagehand_LegacyError can be used to convert the following non-exception errors to exceptions. The following non-exception errors are supported:
+$package->setSummary('A utility to convert some types of errors to exceptions');
+$package->setDescription('Stagehand_LegacyError is a package that can be used to convert some types of errors to exceptions. The following types of errors are supported:
 
-- A PEAR_Error object
-- An array which represents a PEAR_ErrorStack error
-- A PHP error
+- PEAR_Error
+- PEAR_ErrorStack
+- User errors by trigger_error()
 
-Auto conversion can be enabled for each type of errors. If auto conversion is enabled, an error will be converted to an exception by the appropriate error handler when the error is raised. And also exception objects raised from this package are instance of a class which implements the Stagehand_LegacyError_Exception_Interface interface.');
+Auto conversion can be enabled for each type of errors. If auto conversion is enabled, an error will be converted to an exception by the appropriate error handler when the error is raised. And also exception objects raised by conversion are instances of a class which implements the Stagehand_LegacyError_Exception_Interface interface.');
 $package->setChannel('pear.piece-framework.com');
 $package->setLicense('New BSD License', 'http://www.opensource.org/licenses/bsd-license.php');
 $package->setAPIVersion($apiVersion);
