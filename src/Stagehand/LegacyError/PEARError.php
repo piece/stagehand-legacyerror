@@ -35,6 +35,8 @@
  * @since      File available since Release 0.1.0
  */
 
+require_once 'PEAR.php';
+
 // {{{ Stagehand_LegacyError_PEARError
 
 /**
