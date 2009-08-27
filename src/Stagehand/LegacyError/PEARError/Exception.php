@@ -82,7 +82,7 @@ class Stagehand_LegacyError_PEARError_Exception extends Exception implements Sta
         $message = $error->getMessage();
         $userInfo = $error->getUserInfo();
         if (!is_null($userInfo)) {
-            $message .= ', ' . $userInfo; 
+            $message .= ', ' . $userInfo;
         }
 
         parent::__construct($message);
