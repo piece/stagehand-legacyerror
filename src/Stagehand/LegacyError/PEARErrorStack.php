@@ -70,7 +70,7 @@ class Stagehand_LegacyError_PEARErrorStack
      * @access private
      */
 
-    private static $_oldCallback;
+    private static $oldCallback;
 
     /**#@-*/
 
@@ -97,7 +97,7 @@ class Stagehand_LegacyError_PEARErrorStack
      */
     public static function enableConversion()
     {
-        self::$_oldCallback = $GLOBALS['_PEAR_ERRORSTACK_DEFAULT_CALLBACK']['*'];
+        self::$oldCallback = $GLOBALS['_PEAR_ERRORSTACK_DEFAULT_CALLBACK']['*'];
         $GLOBALS['_PEAR_ERRORSTACK_DEFAULT_CALLBACK']['*'] =
             array(__CLASS__, 'toException');
     }
@@ -109,7 +109,7 @@ class Stagehand_LegacyError_PEARErrorStack
      */
     public static function disableConversion()
     {
-        $GLOBALS['_PEAR_ERRORSTACK_DEFAULT_CALLBACK']['*'] = self::$_oldCallback;
+        $GLOBALS['_PEAR_ERRORSTACK_DEFAULT_CALLBACK']['*'] = self::$oldCallback;
     }
 
     /**#@-*/
