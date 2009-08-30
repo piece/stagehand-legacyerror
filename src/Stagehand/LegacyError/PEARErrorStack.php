@@ -35,9 +35,10 @@
  * @since      File available since Release 0.1.0
  */
 
-$oldErrorReportingLevel = error_reporting(error_reporting() & ~E_STRICT);
+$Stagehand_LegacyError_PEARErrorStack_oldErrorReportingLevel = error_reporting(error_reporting() - E_STRICT);
 require_once 'PEAR/ErrorStack.php';
-error_reporting($oldErrorReportingLevel);
+error_reporting($Stagehand_LegacyError_PEARErrorStack_oldErrorReportingLevel);
+unset($Stagehand_LegacyError_PEARErrorStack_oldErrorReportingLevel);
 
 // {{{ Stagehand_LegacyError_PEARErrorStack
 
