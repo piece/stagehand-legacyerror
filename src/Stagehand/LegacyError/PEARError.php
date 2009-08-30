@@ -78,7 +78,7 @@ class Stagehand_LegacyError_PEARError
 
     /**
      * @param PEAR_Error $error
-     * @throws Stagehand_LegacyError_Exception_Interface
+     * @throws Stagehand_LegacyError_Exception
      */
     public static function toException(PEAR_Error $error)
     {

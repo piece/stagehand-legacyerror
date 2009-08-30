@@ -35,7 +35,7 @@
  * @since      File available since Release 0.1.0
  */
 
-// {{{ Stagehand_LegacyError_Exception_Interfacex
+// {{{ Stagehand_LegacyError_Exception
 
 /**
  * @package    Stagehand_LegacyError
@@ -44,7 +44,7 @@
  * @version    Release: @package_version@
  * @since      Class available since Release 0.1.0
  */
-interface Stagehand_LegacyError_Exception_Interface {}
+interface Stagehand_LegacyError_Exception {}
 
 // }}}
 

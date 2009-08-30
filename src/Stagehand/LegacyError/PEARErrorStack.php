@@ -83,7 +83,7 @@ class Stagehand_LegacyError_PEARErrorStack
 
     /**
      * @param array $error
-     * @throws Stagehand_LegacyError_Exception_Interfacexion
+     * @throws Stagehand_LegacyError_Exceptionxion
      */
     public static function toException(array $error)
     {

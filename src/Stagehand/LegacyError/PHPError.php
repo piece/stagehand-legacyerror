@@ -79,7 +79,7 @@ class Stagehand_LegacyError_PHPError
      * @param string  $message
      * @param string  $file
      * @param integer $line
-     * @throws Stagehand_LegacyError_Exception_Interface
+     * @throws Stagehand_LegacyError_Exception
      */
     public static function toException($code, $message, $file, $line)
     {

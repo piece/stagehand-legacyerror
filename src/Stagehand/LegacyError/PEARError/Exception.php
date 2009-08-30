@@ -44,7 +44,7 @@
  * @version    Release: @package_version@
  * @since      Class available since Release 0.1.0
  */
-class Stagehand_LegacyError_PEARError_Exception extends Exception implements Stagehand_LegacyError_Exception_Interface
+class Stagehand_LegacyError_PEARError_Exception extends Exception implements Stagehand_LegacyError_Exception
 {
 
     // {{{ properties

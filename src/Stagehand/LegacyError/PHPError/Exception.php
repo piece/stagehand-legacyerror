@@ -44,7 +44,7 @@
  * @version    Release: @package_version@
  * @since      Class available since Release 0.1.0
  */
-class Stagehand_LegacyError_PHPError_Exception extends ErrorException implements Stagehand_LegacyError_Exception_Interface {}
+class Stagehand_LegacyError_PHPError_Exception extends ErrorException implements Stagehand_LegacyError_Exception {}
 
 // }}}
 
