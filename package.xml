@@ -1,40 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+<package packagerversion="1.8.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
     http://pear.php.net/dtd/tasks-1.0.xsd
     http://pear.php.net/dtd/package-2.0
     http://pear.php.net/dtd/package-2.0.xsd">
  <name>Stagehand_LegacyError</name>
  <channel>pear.piece-framework.com</channel>
- <summary>A utility to convert non-exception errors to exceptions</summary>
- <description>Stagehand_LegacyError can be used to convert the following non-exception errors to exceptions. The following non-exception errors are supported:
+ <summary>A utility to convert some types of errors to exceptions</summary>
+ <description>Stagehand_LegacyError is a package that can be used to convert some types of errors to exceptions automatically. The following types of errors are supported:
 
-- A PEAR_Error object
-- An array which represents a PEAR_ErrorStack error
-- A PHP error
+ * PEAR_Error
+ * PEAR_ErrorStack
+ * PHP errors which can be processed by a user-defined error handler
 
-Auto conversion can be enabled for each type of errors. If auto conversion is enabled, an error will be converted to an exception by the appropriate error handler when the error is raised. And also exception objects raised from this package are instance of a class which implements the Stagehand_LegacyError_Exception_Interface interface.</description>
+Auto conversion can be enabled for each type of errors. If auto conversion is enabled, an error will be converted to an exception by the appropriate error handler when the error is raised. And also exception objects raised by conversion are instances of a class which implements the Stagehand_LegacyError_Exception interface.</description>
  <lead>
   <name>KUBO Atsuhiro</name>
   <user>iteman</user>
   <email>kubo@iteman.jp</email>
   <active>yes</active>
  </lead>
- <date>2009-03-26</date>
- <time>16:05:52</time>
+ <date>2009-08-31</date>
+ <time>18:37:20</time>
  <version>
-  <release>0.2.0</release>
-  <api>0.2.0</api>
+  <release>0.3.0</release>
+  <api>0.3.0</api>
  </version>
  <stability>
   <release>beta</release>
   <api>beta</api>
  </stability>
  <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
- <notes>A new release of Stagehand_LegacyError is now available.
+ <notes>
+What&apos;s New in Stagehand_LegacyError 0.3.0
 
-What&apos;s New in Stagehand_LegacyError 0.2.0
+ Support for Stagehand_Autoload 0.3.0
 
- * Improved PEAR_Error support: __construct() has been changed so as to overwrite the $this-&gt;file and $this-&gt;line properties in the exception object with the file and line where PEAR_Error::raiseError() is called. And the message layout has been changed.</notes>
+  Stagehand_LegacyError now depends on Stagehand_Autoload 0.3.0. Before using Stagehand_LegacyError, specify the namespace *Stagehand* somewhere (e.g. your bootstrap code) as follows:
+
+   &lt;?php
+   require_once &apos;Stagehand/Autoload.php&apos;;
+   $loader = Stagehand_Autoload::getLegacyLoader();
+   $loader-&gt;addNamespace(&apos;Stagehand&apos;);
+   Stagehand_Autoload::register($loader);
+
+Backward Compatibility
+
+ Changed the name of the interface
+
+  In previous versions of Stagehand_LegacyError, The interface name was Stagehand_LegacyError_Exception_Interface. Stagehand_LegacyError_Exception_Interface has now been renamed to Stagehand_LegacyError_Exception.
+ </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
    <dir name="doc">
@@ -45,11 +59,6 @@ What&apos;s New in Stagehand_LegacyError 0.2.0
    <dir name="src">
     <dir name="Stagehand">
      <dir name="LegacyError">
-      <dir name="Exception">
-       <file name="Interface.php" role="php">
-        <tasks:replace from="@package_version@" to="version" type="package-info" />
-       </file>
-      </dir> <!-- /src/Stagehand/LegacyError/Exception -->
       <dir name="PEARError">
        <file name="Exception.php" role="php">
         <tasks:replace from="@package_version@" to="version" type="package-info" />
@@ -65,6 +74,9 @@ What&apos;s New in Stagehand_LegacyError 0.2.0
         <tasks:replace from="@package_version@" to="version" type="package-info" />
        </file>
       </dir> <!-- /src/Stagehand/LegacyError/PHPError -->
+      <file name="Exception.php" role="php">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
       <file name="PEARError.php" role="php">
        <tasks:replace from="@package_version@" to="version" type="package-info" />
       </file>
@@ -87,10 +99,46 @@ What&apos;s New in Stagehand_LegacyError 0.2.0
    <pearinstaller>
     <min>1.4.3</min>
    </pearinstaller>
+   <package>
+    <name>Stagehand_Autoload</name>
+    <channel>pear.piece-framework.com</channel>
+    <min>0.3.0</min>
+   </package>
   </required>
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>0.3.0</release>
+    <api>0.3.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2009-08-31</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+   <notes>
+What&apos;s New in Stagehand_LegacyError 0.3.0
+
+ Support for Stagehand_Autoload 0.3.0
+
+  Stagehand_LegacyError now depends on Stagehand_Autoload 0.3.0. Before using Stagehand_LegacyError, specify the namespace *Stagehand* somewhere (e.g. your bootstrap code) as follows:
+
+   &lt;?php
+   require_once &apos;Stagehand/Autoload.php&apos;;
+   $loader = Stagehand_Autoload::getLegacyLoader();
+   $loader-&gt;addNamespace(&apos;Stagehand&apos;);
+   Stagehand_Autoload::register($loader);
+
+Backward Compatibility
+
+ Changed the name of the interface
+
+  In previous versions of Stagehand_LegacyError, The interface name was Stagehand_LegacyError_Exception_Interface. Stagehand_LegacyError_Exception_Interface has now been renamed to Stagehand_LegacyError_Exception.
+   </notes>
+  </release>
   <release>
    <version>
     <release>0.2.0</release>
@@ -102,11 +150,13 @@ What&apos;s New in Stagehand_LegacyError 0.2.0
    </stability>
    <date>2009-03-26</date>
    <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
-   <notes>A new release of Stagehand_LegacyError is now available.
+   <notes>
+A new release of Stagehand_LegacyError is now available.
 
 What&apos;s New in Stagehand_LegacyError 0.2.0
 
- * Improved PEAR_Error support: __construct() has been changed so as to overwrite the $this-&gt;file and $this-&gt;line properties in the exception object with the file and line where PEAR_Error::raiseError() is called. And the message layout has been changed.</notes>
+ * Improved PEAR_Error support: __construct() has been changed so as to overwrite the $this-&gt;file and $this-&gt;line properties in the exception object with the file and line where PEAR_Error::raiseError() is called. And the message layout has been changed.
+   </notes>
   </release>
   <release>
    <version>
@@ -119,7 +169,9 @@ What&apos;s New in Stagehand_LegacyError 0.2.0
    </stability>
    <date>2009-03-24</date>
    <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
-   <notes>The first beta release of Stagehand_LegacyError.</notes>
+   <notes>
+The first beta release of Stagehand_LegacyError.
+   </notes>
   </release>
  </changelog>
 </package>

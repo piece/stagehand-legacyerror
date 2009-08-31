@@ -40,15 +40,27 @@ require_once 'PEAR.php';
 
 PEAR::staticPushErrorHandling(PEAR_ERROR_CALLBACK, create_function('$error', 'var_dump($error); exit();'));
 
-$releaseVersion = '0.2.0';
+$releaseVersion = '0.3.0';
 $releaseStability = 'beta';
-$apiVersion = '0.2.0';
+$apiVersion = '0.3.0';
 $apiStability = 'beta';
-$notes = 'A new release of Stagehand_LegacyError is now available.
+$notes = 'What\'s New in Stagehand_LegacyError 0.3.0
 
-What\'s New in Stagehand_LegacyError 0.2.0
+ Support for Stagehand_Autoload 0.3.0
 
- * Improved PEAR_Error support: __construct() has been changed so as to overwrite the $this->file and $this->line properties in the exception object with the file and line where PEAR_Error::raiseError() is called. And the message layout has been changed.';
+  Stagehand_LegacyError now depends on Stagehand_Autoload 0.3.0. Before using Stagehand_LegacyError, specify the namespace *Stagehand* somewhere (e.g. your bootstrap code) as follows:
+
+   <?php
+   require_once \'Stagehand/Autoload.php\';
+   $loader = Stagehand_Autoload::getLegacyLoader();
+   $loader->addNamespace(\'Stagehand\');
+   Stagehand_Autoload::register($loader);
+
+Backward Compatibility
+
+ Changed the name of the interface
+
+  In previous versions of Stagehand_LegacyError, The interface name was Stagehand_LegacyError_Exception_Interface. Stagehand_LegacyError_Exception_Interface has now been renamed to Stagehand_LegacyError_Exception.';
 
 $package = new PEAR_PackageFileManager2();
 $package->setOptions(array('filelistgenerator' => 'file',
@@ -65,13 +77,13 @@ $package->setOptions(array('filelistgenerator' => 'file',
 $package->setPackage('Stagehand_LegacyError');
 $package->setPackageType('php');
 $package->setSummary('A utility to convert some types of errors to exceptions');
-$package->setDescription('Stagehand_LegacyError is a package that can be used to convert some types of errors to exceptions. The following types of errors are supported:
+$package->setDescription('Stagehand_LegacyError is a package that can be used to convert some types of errors to exceptions automatically. The following types of errors are supported:
 
-- PEAR_Error
-- PEAR_ErrorStack
-- User errors by trigger_error()
+ * PEAR_Error
+ * PEAR_ErrorStack
+ * PHP errors which can be processed by a user-defined error handler
 
-Auto conversion can be enabled for each type of errors. If auto conversion is enabled, an error will be converted to an exception by the appropriate error handler when the error is raised. And also exception objects raised by conversion are instances of a class which implements the Stagehand_LegacyError_Exception_Interface interface.');
+Auto conversion can be enabled for each type of errors. If auto conversion is enabled, an error will be converted to an exception by the appropriate error handler when the error is raised. And also exception objects raised by conversion are instances of a class which implements the Stagehand_LegacyError_Exception interface.');
 $package->setChannel('pear.piece-framework.com');
 $package->setLicense('New BSD License', 'http://www.opensource.org/licenses/bsd-license.php');
 $package->setAPIVersion($apiVersion);
@@ -81,6 +93,7 @@ $package->setReleaseStability($releaseStability);
 $package->setNotes($notes);
 $package->setPhpDep('5.1.0');   // ErrorException (PHP 5 >= 5.1.0)
 $package->setPearinstallerDep('1.4.3');
+$package->addPackageDepWithChannel('required', 'Stagehand_Autoload', 'pear.piece-framework.com', '0.3.0');
 $package->addMaintainer('lead', 'iteman', 'KUBO Atsuhiro', 'kubo@iteman.jp');
 $package->addGlobalReplacement('package-info', '@package_version@', 'version');
 $package->generateContents();
