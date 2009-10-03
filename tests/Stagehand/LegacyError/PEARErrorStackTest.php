@@ -32,24 +32,19 @@
  * @copyright  2009 KUBO Atsuhiro <kubo@iteman.jp>
  * @license    http://www.opensource.org/licenses/bsd-license.php  New BSD License
  * @version    Release: @package_version@
- * @since      File available since Release 0.1.0
+ * @since      File available since Release 0.3.1
  */
 
-$Stagehand_LegacyError_PEARErrorStack_oldErrorReportingLevel = error_reporting(error_reporting() & ~E_STRICT);
-require_once 'PEAR/ErrorStack.php';
-error_reporting($Stagehand_LegacyError_PEARErrorStack_oldErrorReportingLevel);
-unset($Stagehand_LegacyError_PEARErrorStack_oldErrorReportingLevel);
-
-// {{{ Stagehand_LegacyError_PEARErrorStack
+// {{{ Stagehand_LegacyError_PEARErrorStackTest
 
 /**
  * @package    Stagehand_LegacyError
  * @copyright  2009 KUBO Atsuhiro <kubo@iteman.jp>
  * @license    http://www.opensource.org/licenses/bsd-license.php  New BSD License
  * @version    Release: @package_version@
- * @since      Class available since Release 0.1.0
+ * @since      Class available since Release 0.3.1
  */
-class Stagehand_LegacyError_PEARErrorStack
+class Stagehand_LegacyError_PEARErrorStackTest extends PHPUnit_Framework_TestCase
 {
 
     // {{{ properties
@@ -70,46 +65,37 @@ class Stagehand_LegacyError_PEARErrorStack
      * @access private
      */
 
-    private static $oldCallback;
-
     /**#@-*/
 
     /**#@+
      * @access public
      */
 
-    // }}}
-    // {{{ toException()
-
-    /**
-     * @param array $error
-     * @throws Stagehand_LegacyError_Exceptionxion
-     */
-    public static function toException(array $error)
+    public function setUp()
     {
-        throw new Stagehand_LegacyError_PEARErrorStack_Exception($error);
+        $this->oldErrorReportingLevel = error_reporting();
     }
 
-    // }}}
-    // {{{ enableConversion()
-
-    /**
-     */
-    public static function enableConversion()
+    public function tearDown()
     {
-        self::$oldCallback = $GLOBALS['_PEAR_ERRORSTACK_DEFAULT_CALLBACK']['*'];
-        $GLOBALS['_PEAR_ERRORSTACK_DEFAULT_CALLBACK']['*'] =
-            array(__CLASS__, 'toException');
+        error_reporting($this->oldErrorReportingLevel);
     }
 
-    // }}}
-    // {{{ disableConversion()
-
     /**
+     * @test
      */
-    public static function disableConversion()
+    public function notCauseAStrictStandardsErrorToBeRaised()
     {
-        $GLOBALS['_PEAR_ERRORSTACK_DEFAULT_CALLBACK']['*'] = self::$oldCallback;
+        error_reporting(E_ALL);
+
+        try {
+            Stagehand_LegacyError_PHPError::enableConversion(E_STRICT);
+            class_exists('Stagehand_LegacyError_PEARErrorStack');
+            Stagehand_LegacyError_PHPError::disableConversion();
+        } catch (Stagehand_LegacyError_PHPError_Exception $e) {
+            Stagehand_LegacyError_PHPError::disableConversion();
+            $this->fail($e->getMessage());
+        }
     }
 
     /**#@-*/
@@ -134,7 +120,7 @@ class Stagehand_LegacyError_PEARErrorStack
 /*
  * Local Variables:
  * mode: php
- * coding: utf-8
+ * coding: iso-8859-1
  * tab-width: 4
  * c-basic-offset: 4
  * c-hanging-comment-ender-p: nil
