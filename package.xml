@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.8.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
     http://pear.php.net/dtd/tasks-1.0.xsd
     http://pear.php.net/dtd/package-2.0
     http://pear.php.net/dtd/package-2.0.xsd">
@@ -19,10 +19,10 @@ Auto conversion can be enabled for each type of errors. If auto conversion is en
   <email>kubo@iteman.jp</email>
   <active>yes</active>
  </lead>
- <date>2009-08-31</date>
- <time>18:37:20</time>
+ <date>2009-10-03</date>
+ <time>17:35:08</time>
  <version>
-  <release>0.3.0</release>
+  <release>0.3.1</release>
   <api>0.3.0</api>
  </version>
  <stability>
@@ -31,23 +31,12 @@ Auto conversion can be enabled for each type of errors. If auto conversion is en
  </stability>
  <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
  <notes>
-What&apos;s New in Stagehand_LegacyError 0.3.0
+What&apos;s New in Stagehand_LegacyError 0.3.1
 
- Support for Stagehand_Autoload 0.3.0
+ Two defect fixes.
 
-  Stagehand_LegacyError now depends on Stagehand_Autoload 0.3.0. Before using Stagehand_LegacyError, specify the namespace *Stagehand* somewhere (e.g. your bootstrap code) as follows:
-
-   &lt;?php
-   require_once &apos;Stagehand/Autoload.php&apos;;
-   $loader = Stagehand_Autoload::getLegacyLoader();
-   $loader-&gt;addNamespace(&apos;Stagehand&apos;);
-   Stagehand_Autoload::register($loader);
-
-Backward Compatibility
-
- Changed the name of the interface
-
-  In previous versions of Stagehand_LegacyError, The interface name was Stagehand_LegacyError_Exception_Interface. Stagehand_LegacyError_Exception_Interface has now been renamed to Stagehand_LegacyError_Exception.
+  * A defect has been fixed so that Stagehand_LegacyError_PHPError causes an exception to be raised when an unrelated error is raised.
+  * A defect has been fixed so that Stagehand_LegacyError_PEARErrorStack causes a &quot;Strict Standards&quot; error to be raised.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -89,6 +78,21 @@ Backward Compatibility
      </dir> <!-- /src/Stagehand/LegacyError -->
     </dir> <!-- /src/Stagehand -->
    </dir> <!-- /src -->
+   <dir name="tests">
+    <dir name="Stagehand">
+     <dir name="LegacyError">
+      <file name="PEARErrorStackTest.php" role="test">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+      <file name="PHPErrorTest.php" role="test">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+     </dir> <!-- /tests/Stagehand/LegacyError -->
+    </dir> <!-- /tests/Stagehand -->
+    <file name="prepare.php" role="test">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+   </dir> <!-- /tests -->
   </dir> <!-- / -->
  </contents>
  <dependencies>
@@ -108,6 +112,26 @@ Backward Compatibility
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>0.3.1</release>
+    <api>0.3.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2009-10-03</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+   <notes>
+What&apos;s New in Stagehand_LegacyError 0.3.1
+
+ Two defect fixes.
+
+  * A defect has been fixed so that Stagehand_LegacyError_PHPError causes an exception to be raised when an unrelated error is raised.
+  * A defect has been fixed so that Stagehand_LegacyError_PEARErrorStack causes a &quot;Strict Standards&quot; error to be raised.
+   </notes>
+  </release>
   <release>
    <version>
     <release>0.3.0</release>

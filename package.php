@@ -40,27 +40,16 @@ require_once 'PEAR.php';
 
 PEAR::staticPushErrorHandling(PEAR_ERROR_CALLBACK, create_function('$error', 'var_dump($error); exit();'));
 
-$releaseVersion = '0.3.0';
+$releaseVersion = '0.3.1';
 $releaseStability = 'beta';
 $apiVersion = '0.3.0';
 $apiStability = 'beta';
-$notes = 'What\'s New in Stagehand_LegacyError 0.3.0
+$notes = 'What\'s New in Stagehand_LegacyError 0.3.1
 
- Support for Stagehand_Autoload 0.3.0
+ Two defect fixes.
 
-  Stagehand_LegacyError now depends on Stagehand_Autoload 0.3.0. Before using Stagehand_LegacyError, specify the namespace *Stagehand* somewhere (e.g. your bootstrap code) as follows:
-
-   <?php
-   require_once \'Stagehand/Autoload.php\';
-   $loader = Stagehand_Autoload::getLegacyLoader();
-   $loader->addNamespace(\'Stagehand\');
-   Stagehand_Autoload::register($loader);
-
-Backward Compatibility
-
- Changed the name of the interface
-
-  In previous versions of Stagehand_LegacyError, The interface name was Stagehand_LegacyError_Exception_Interface. Stagehand_LegacyError_Exception_Interface has now been renamed to Stagehand_LegacyError_Exception.';
+  * A defect has been fixed so that Stagehand_LegacyError_PHPError causes an exception to be raised when an unrelated error is raised.
+  * A defect has been fixed so that Stagehand_LegacyError_PEARErrorStack causes a "Strict Standards" error to be raised.';
 
 $package = new PEAR_PackageFileManager2();
 $package->setOptions(array('filelistgenerator' => 'file',
@@ -70,7 +59,8 @@ $package->setOptions(array('filelistgenerator' => 'file',
                            'packagefile'       => 'package.xml',
                            'packagedirectory'  => '.',
                            'dir_roles'         => array('doc' => 'doc',
-                                                        'src' => 'php'),
+                                                        'src' => 'php',
+                                                        'tests' => 'test'),
                            'ignore'            => array('package.php'))
                      );
 
