@@ -89,15 +89,16 @@ class Stagehand_LegacyError_PEARErrorStackTest extends PHPUnit_Framework_TestCas
     public function notCauseAStrictStandardsErrorToBeRaised()
     {
         error_reporting(E_ALL);
+        Stagehand_LegacyError_PHPError::enableConversion(E_STRICT);
 
         try {
-            Stagehand_LegacyError_PHPError::enableConversion(E_STRICT);
             class_exists('Stagehand_LegacyError_PEARErrorStack');
-            Stagehand_LegacyError_PHPError::disableConversion();
         } catch (Stagehand_LegacyError_PHPError_Exception $e) {
             Stagehand_LegacyError_PHPError::disableConversion();
             $this->fail($e->getMessage());
         }
+
+        Stagehand_LegacyError_PHPError::disableConversion();
     }
 
     /**#@-*/
