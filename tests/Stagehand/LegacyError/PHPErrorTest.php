@@ -32,19 +32,19 @@
  * @copyright  2009 KUBO Atsuhiro <kubo@iteman.jp>
  * @license    http://www.opensource.org/licenses/bsd-license.php  New BSD License
  * @version    Release: @package_version@
- * @since      File available since Release 0.1.0
+ * @since      File available since Release 0.3.1
  */
 
-// {{{ Stagehand_LegacyError_PHPError
+// {{{ Stagehand_LegacyError_PHPErrorTest
 
 /**
  * @package    Stagehand_LegacyError
  * @copyright  2009 KUBO Atsuhiro <kubo@iteman.jp>
  * @license    http://www.opensource.org/licenses/bsd-license.php  New BSD License
  * @version    Release: @package_version@
- * @since      Class available since Release 0.1.0
+ * @since      Class available since Release 0.3.1
  */
-class Stagehand_LegacyError_PHPError
+class Stagehand_LegacyError_PHPErrorTest extends PHPUnit_Framework_TestCase
 {
 
     // {{{ properties
@@ -65,48 +65,47 @@ class Stagehand_LegacyError_PHPError
      * @access private
      */
 
+    private $oldErrorReportingLevel;
+
     /**#@-*/
 
     /**#@+
      * @access public
      */
 
-    // }}}
-    // {{{ toException()
+    public function setUp()
+    {
+        $this->oldErrorReportingLevel = error_reporting();
+    }
+
+    public function tearDown()
+    {
+        error_reporting($this->oldErrorReportingLevel);
+    }
 
     /**
-     * @param integer $code
-     * @param string  $message
-     * @param string  $file
-     * @param integer $line
-     * @throws Stagehand_LegacyError_Exception
+     * @test
      */
-    public static function toException($code, $message, $file, $line)
+    public function notRaiseAnExceptionWhenAnUnrelatedErrorIsRaised()
     {
-        if (error_reporting() & $code) {
-            throw new Stagehand_LegacyError_PHPError_Exception($message, 0, $code, $file, $line);
+        Stagehand_LegacyError_PHPError::enableConversion(E_ALL);
+        error_reporting(E_ALL & ~E_USER_WARNING);
+
+        try {
+            trigger_error('An expected exception has not been raised', E_USER_ERROR);
+            $this->fail($e->getMessage());
+            Stagehand_LegacyError_PHPError::disableConversion();
+        } catch (Stagehand_LegacyError_PHPError_Exception $e) {
         }
-    }
 
-    // }}}
-    // {{{ enableConversion()
+        try {
+            trigger_error('An unexpected exception has been raised', E_USER_WARNING);
+        } catch (Stagehand_LegacyError_PHPError_Exception $e) {
+            Stagehand_LegacyError_PHPError::disableConversion();
+            $this->fail($e->getMessage());
+        }
 
-    /**
-     * @param integer $errorReportingLevel
-     */
-    public static function enableConversion($errorReportingLevel = E_USER_ERROR)
-    {
-        set_error_handler(array(__CLASS__, 'toException'), $errorReportingLevel);
-    }
-
-    // }}}
-    // {{{ disableConversion()
-
-    /**
-     */
-    public static function disableConversion()
-    {
-        restore_error_handler();
+        Stagehand_LegacyError_PHPError::disableConversion();
     }
 
     /**#@-*/
@@ -131,7 +130,7 @@ class Stagehand_LegacyError_PHPError
 /*
  * Local Variables:
  * mode: php
- * coding: utf-8
+ * coding: iso-8859-1
  * tab-width: 4
  * c-basic-offset: 4
  * c-hanging-comment-ender-p: nil
