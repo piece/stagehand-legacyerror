@@ -65,6 +65,8 @@ class Stagehand_LegacyError_PEARErrorStackTest extends PHPUnit_Framework_TestCas
      * @access private
      */
 
+    private $oldErrorReportingLevel;
+
     /**#@-*/
 
     /**#@+
