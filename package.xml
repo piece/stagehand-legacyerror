@@ -20,7 +20,7 @@ Auto conversion can be enabled for each type of errors. If auto conversion is en
   <active>yes</active>
  </lead>
  <date>2010-09-09</date>
- <time>13:17:31</time>
+ <time>13:53:43</time>
  <version>
   <release>1.0.0</release>
   <api>0.3.0</api>
@@ -38,13 +38,13 @@ The features of Stagehand_LegacyError 1.0.0 is the same as Stagehand_LegacyError
  <contents>
   <dir baseinstalldir="/" name="/">
    <file baseinstalldir="/" md5sum="58e136c57c700bf1055c7d67caf9656a" name="doc/LICENSE" role="doc" />
-   <file baseinstalldir="/" md5sum="ba86c7ea97f352f7efef6c06538830e3" name="Stagehand/LegacyError/Exception.php" role="php" />
-   <file baseinstalldir="/" md5sum="80028c6022002313bb87e8233385e391" name="Stagehand/LegacyError/PEARError.php" role="php" />
-   <file baseinstalldir="/" md5sum="57bde3b72fa02af534403ca0befe1478" name="Stagehand/LegacyError/PEARErrorStack.php" role="php" />
-   <file baseinstalldir="/" md5sum="57e952d9994473674b05eb303a9d3770" name="Stagehand/LegacyError/PHPError.php" role="php" />
-   <file baseinstalldir="/" md5sum="40f38a16ae50afd813a51a70f94a0de0" name="Stagehand/LegacyError/PEARError/Exception.php" role="php" />
-   <file baseinstalldir="/" md5sum="5e490b31142706230e812090c8839b9b" name="Stagehand/LegacyError/PEARErrorStack/Exception.php" role="php" />
-   <file baseinstalldir="/" md5sum="e8cb48b63eddfc4f8f4687a997ff9893" name="Stagehand/LegacyError/PHPError/Exception.php" role="php" />
+   <file baseinstalldir="/" md5sum="f65c563c2a568ec8230d3b1a91312cb4" name="Stagehand/LegacyError/Exception.php" role="php" />
+   <file baseinstalldir="/" md5sum="8d2e83efa896dbcfff487d747e25ac6e" name="Stagehand/LegacyError/PEARError.php" role="php" />
+   <file baseinstalldir="/" md5sum="8d1f65c4d9af49255107f20e37a0a1fc" name="Stagehand/LegacyError/PEARErrorStack.php" role="php" />
+   <file baseinstalldir="/" md5sum="ee678d9efb21edf4affdd1fa8c563190" name="Stagehand/LegacyError/PHPError.php" role="php" />
+   <file baseinstalldir="/" md5sum="427345708ce1ca5857a9c84731676c93" name="Stagehand/LegacyError/PEARError/Exception.php" role="php" />
+   <file baseinstalldir="/" md5sum="193f349a0ba4ed25d322851f8546c7de" name="Stagehand/LegacyError/PEARErrorStack/Exception.php" role="php" />
+   <file baseinstalldir="/" md5sum="ce98ccc1dedcf7ac231960949e810c2b" name="Stagehand/LegacyError/PHPError/Exception.php" role="php" />
   </dir>
  </contents>
  <dependencies>

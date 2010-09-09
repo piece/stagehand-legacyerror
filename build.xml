@@ -65,6 +65,11 @@ Auto conversion can be enabled for each type of errors. If auto conversion is en
     </copy>
     <copy todir="${build.dir}">
       <fileset dir="${src.dir}"/>
+      <filterchain>
+        <replacetokens begintoken="@" endtoken="@">
+          <token key="package_version" value="${package.releaseversion}"/>
+        </replacetokens>
+      </filterchain>
     </copy>
   </target>
 
