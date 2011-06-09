@@ -100,6 +100,7 @@ class Stagehand_LegacyError_PEARErrorStack
         self::$oldCallback = $GLOBALS['_PEAR_ERRORSTACK_DEFAULT_CALLBACK']['*'];
         $GLOBALS['_PEAR_ERRORSTACK_DEFAULT_CALLBACK']['*'] =
             array(__CLASS__, 'toException');
+        class_exists('Stagehand_LegacyError_PEARErrorStack_Exception');
     }
 
     // }}}

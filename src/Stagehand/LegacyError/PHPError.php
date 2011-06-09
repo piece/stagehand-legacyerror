@@ -97,6 +97,7 @@ class Stagehand_LegacyError_PHPError
     public static function enableConversion($errorReportingLevel = E_USER_ERROR)
     {
         set_error_handler(array(__CLASS__, 'toException'), $errorReportingLevel);
+        class_exists('Stagehand_LegacyError_PHPError_Exception');
     }
 
     // }}}

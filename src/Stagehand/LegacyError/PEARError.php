@@ -97,6 +97,7 @@ class Stagehand_LegacyError_PEARError
                                       array(__CLASS__, 'toException')
                                       );
         error_reporting($oldErrorReportingLevel);
+        class_exists('Stagehand_LegacyError_PEARError_Exception');
     }
 
     // }}}
