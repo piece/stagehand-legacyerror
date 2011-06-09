@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.9.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+<package packagerversion="1.9.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
     http://pear.php.net/dtd/tasks-1.0.xsd
     http://pear.php.net/dtd/package-2.0
     http://pear.php.net/dtd/package-2.0.xsd">
@@ -19,10 +19,10 @@ Auto conversion can be enabled for each type of errors. If auto conversion is en
   <email>kubo@iteman.jp</email>
   <active>yes</active>
  </lead>
- <date>2011-06-09</date>
- <time>15:13:44</time>
+ <date>2011-10-01</date>
+ <time>17:00:43</time>
  <version>
-  <release>1.0.1</release>
+  <release>1.0.2</release>
   <api>0.3.0</api>
  </version>
  <stability>
@@ -31,24 +31,24 @@ Auto conversion can be enabled for each type of errors. If auto conversion is en
  </stability>
  <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
  <notes>
-What&apos;s New in Stagehand_LegacyError 1.0.1
+What&apos;s New in Stagehand_LegacyError 1.0.2
 
 A Defect Fix
 
  The following defect has been fixed:
 
- * An error &quot;Fatal error: Class &apos;Stagehand_LegacyError_PHPError_Exception&apos; not found&quot; is raised if an error is raised within the error handler. (Issue #292)
+ * A possible crash by &quot;Strict Standards&quot; (Issue #342)
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
    <file baseinstalldir="/" md5sum="bf838bb8ad5f19de14cb47d4332271c1" name="doc/LICENSE" role="doc" />
-   <file baseinstalldir="/" md5sum="a370aac2ed98272cd133475a16dd7901" name="Stagehand/LegacyError/Exception.php" role="php" />
-   <file baseinstalldir="/" md5sum="d03b45f790cf79eb2edcce6203385777" name="Stagehand/LegacyError/PEARError.php" role="php" />
-   <file baseinstalldir="/" md5sum="56d3469d3472c57d5838a76624db3901" name="Stagehand/LegacyError/PEARErrorStack.php" role="php" />
-   <file baseinstalldir="/" md5sum="20f27f92bc2f88eebeee202eda0d9505" name="Stagehand/LegacyError/PHPError.php" role="php" />
-   <file baseinstalldir="/" md5sum="5b7fbe229b99d8bb87b2a7b7744a0b05" name="Stagehand/LegacyError/PEARError/Exception.php" role="php" />
-   <file baseinstalldir="/" md5sum="bc5cf5ec65be2c0d272139cc748bbb83" name="Stagehand/LegacyError/PEARErrorStack/Exception.php" role="php" />
-   <file baseinstalldir="/" md5sum="aa7445aba2fbe7a36fd9f67a86adaeb9" name="Stagehand/LegacyError/PHPError/Exception.php" role="php" />
+   <file baseinstalldir="/" md5sum="41aeadbbe8cdf7f4ff95f29dcc8d3385" name="Stagehand/LegacyError/Exception.php" role="php" />
+   <file baseinstalldir="/" md5sum="265ee37f1141adfb2cfe112716d8b6b4" name="Stagehand/LegacyError/PEARError.php" role="php" />
+   <file baseinstalldir="/" md5sum="bbe8d516957d4e1064e531c115a5c030" name="Stagehand/LegacyError/PEARErrorStack.php" role="php" />
+   <file baseinstalldir="/" md5sum="efa65a772375b6cdf9ba7bd30c258cbe" name="Stagehand/LegacyError/PHPError.php" role="php" />
+   <file baseinstalldir="/" md5sum="3b88fb9ceb14ad2172fde9b3c8516747" name="Stagehand/LegacyError/PEARError/Exception.php" role="php" />
+   <file baseinstalldir="/" md5sum="6d94b266b0b595da4f312e790dc268da" name="Stagehand/LegacyError/PEARErrorStack/Exception.php" role="php" />
+   <file baseinstalldir="/" md5sum="72262395943ab3609371304f454f48bd" name="Stagehand/LegacyError/PHPError/Exception.php" role="php" />
   </dir>
  </contents>
  <dependencies>
@@ -184,6 +184,27 @@ A Defect Fix
  The following defect has been fixed:
 
  * An error &quot;Fatal error: Class &apos;Stagehand_LegacyError_PHPError_Exception&apos; not found&quot; is raised if an error is raised within the error handler. (Issue #292)
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.2</release>
+    <api>0.3.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2011-10-01</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+   <notes>
+What&apos;s New in Stagehand_LegacyError 1.0.2
+
+A Defect Fix
+
+ The following defect has been fixed:
+
+ * A possible crash by &quot;Strict Standards&quot; (Issue #342)
    </notes>
   </release>
  </changelog>

@@ -33,9 +33,9 @@ A Defect Fix
 
  The following defect has been fixed:
 
- * An error "Fatal error: Class 'Stagehand_LegacyError_PHPError_Exception' not found" is raised if an error is raised within the error handler. (Issue #292)
+ * A possible crash by "Strict Standards" (Issue #342)
 ]]></property>
-  <property name="package.releaseversion">1.0.1</property>
+  <property name="package.releaseversion">1.0.2</property>
   <property name="package.releasestability">stable</property>
   <property name="package.apiversion">0.3.0</property>
   <property name="package.apistability">stable</property>
