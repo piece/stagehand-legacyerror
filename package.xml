@@ -19,10 +19,10 @@ Auto conversion can be enabled for each type of errors. If auto conversion is en
   <email>kubo@iteman.jp</email>
   <active>yes</active>
  </lead>
- <date>2010-09-09</date>
- <time>13:53:43</time>
+ <date>2011-06-09</date>
+ <time>15:13:44</time>
  <version>
-  <release>1.0.0</release>
+  <release>1.0.1</release>
   <api>0.3.0</api>
  </version>
  <stability>
@@ -31,20 +31,24 @@ Auto conversion can be enabled for each type of errors. If auto conversion is en
  </stability>
  <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
  <notes>
-This is the first stable release of Stagehand_LegacyError.
+What&apos;s New in Stagehand_LegacyError 1.0.1
 
-The features of Stagehand_LegacyError 1.0.0 is the same as Stagehand_LegacyError 0.3.1 except the version number and the directory structure. As of this version, the sources are located directly under the &quot;php_dir&quot; (PEAR directory).
+A Defect Fix
+
+ The following defect has been fixed:
+
+ * An error &quot;Fatal error: Class &apos;Stagehand_LegacyError_PHPError_Exception&apos; not found&quot; is raised if an error is raised within the error handler. (Issue #292)
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
-   <file baseinstalldir="/" md5sum="58e136c57c700bf1055c7d67caf9656a" name="doc/LICENSE" role="doc" />
-   <file baseinstalldir="/" md5sum="f65c563c2a568ec8230d3b1a91312cb4" name="Stagehand/LegacyError/Exception.php" role="php" />
-   <file baseinstalldir="/" md5sum="8d2e83efa896dbcfff487d747e25ac6e" name="Stagehand/LegacyError/PEARError.php" role="php" />
-   <file baseinstalldir="/" md5sum="8d1f65c4d9af49255107f20e37a0a1fc" name="Stagehand/LegacyError/PEARErrorStack.php" role="php" />
-   <file baseinstalldir="/" md5sum="ee678d9efb21edf4affdd1fa8c563190" name="Stagehand/LegacyError/PHPError.php" role="php" />
-   <file baseinstalldir="/" md5sum="427345708ce1ca5857a9c84731676c93" name="Stagehand/LegacyError/PEARError/Exception.php" role="php" />
-   <file baseinstalldir="/" md5sum="193f349a0ba4ed25d322851f8546c7de" name="Stagehand/LegacyError/PEARErrorStack/Exception.php" role="php" />
-   <file baseinstalldir="/" md5sum="ce98ccc1dedcf7ac231960949e810c2b" name="Stagehand/LegacyError/PHPError/Exception.php" role="php" />
+   <file baseinstalldir="/" md5sum="bf838bb8ad5f19de14cb47d4332271c1" name="doc/LICENSE" role="doc" />
+   <file baseinstalldir="/" md5sum="a370aac2ed98272cd133475a16dd7901" name="Stagehand/LegacyError/Exception.php" role="php" />
+   <file baseinstalldir="/" md5sum="d03b45f790cf79eb2edcce6203385777" name="Stagehand/LegacyError/PEARError.php" role="php" />
+   <file baseinstalldir="/" md5sum="56d3469d3472c57d5838a76624db3901" name="Stagehand/LegacyError/PEARErrorStack.php" role="php" />
+   <file baseinstalldir="/" md5sum="20f27f92bc2f88eebeee202eda0d9505" name="Stagehand/LegacyError/PHPError.php" role="php" />
+   <file baseinstalldir="/" md5sum="5b7fbe229b99d8bb87b2a7b7744a0b05" name="Stagehand/LegacyError/PEARError/Exception.php" role="php" />
+   <file baseinstalldir="/" md5sum="bc5cf5ec65be2c0d272139cc748bbb83" name="Stagehand/LegacyError/PEARErrorStack/Exception.php" role="php" />
+   <file baseinstalldir="/" md5sum="aa7445aba2fbe7a36fd9f67a86adaeb9" name="Stagehand/LegacyError/PHPError/Exception.php" role="php" />
   </dir>
  </contents>
  <dependencies>
@@ -55,11 +59,6 @@ The features of Stagehand_LegacyError 1.0.0 is the same as Stagehand_LegacyError
    <pearinstaller>
     <min>1.4.3</min>
    </pearinstaller>
-   <package>
-    <name>Stagehand_Autoload</name>
-    <channel>pear.piece-framework.com</channel>
-    <min>0.3.0</min>
-   </package>
   </required>
  </dependencies>
  <phprelease />
@@ -164,6 +163,27 @@ What&apos;s New in Stagehand_LegacyError 0.3.1
 This is the first stable release of Stagehand_LegacyError.
 
 The features of Stagehand_LegacyError 1.0.0 is the same as Stagehand_LegacyError 0.3.1 except the version number and the directory structure. As of this version, the sources are located directly under the &quot;php_dir&quot; (PEAR directory).
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.1</release>
+    <api>0.3.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2011-06-09</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+   <notes>
+What&apos;s New in Stagehand_LegacyError 1.0.1
+
+A Defect Fix
+
+ The following defect has been fixed:
+
+ * An error &quot;Fatal error: Class &apos;Stagehand_LegacyError_PHPError_Exception&apos; not found&quot; is raised if an error is raised within the error handler. (Issue #292)
    </notes>
   </release>
  </changelog>
