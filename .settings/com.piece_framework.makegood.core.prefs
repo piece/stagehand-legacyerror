@@ -1,5 +1,10 @@
-#Thu Sep 09 12:37:30 JST 2010
+#Tue Jun 28 03:20:00 JST 2011
+cakephp_app_path=
+cakephp_core_path=
+ciunit_config_file=
+ciunit_path=
 eclipse.preferences.version=1
-preload_script=/stagehand-legacyerror/tests/prepare.php
+phpunit_config_file=
+preload_script=/stagehand-legacyerror/test/prepare.php
 test_folders=/stagehand-legacyerror/test
 testing_framework=PHPUnit
