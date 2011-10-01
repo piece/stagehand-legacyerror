@@ -93,9 +93,11 @@ class Stagehand_LegacyError_PEARError
     public static function enableConversion()
     {
         $oldErrorReportingLevel = error_reporting(error_reporting() & ~E_STRICT);
+        Stagehand_LegacyError_PHPError::enableConversion(error_reporting());
         PEAR::staticPushErrorHandling(PEAR_ERROR_CALLBACK,
                                       array(__CLASS__, 'toException')
                                       );
+        Stagehand_LegacyError_PHPError::disableConversion();
         error_reporting($oldErrorReportingLevel);
         class_exists('Stagehand_LegacyError_PEARError_Exception');
     }
@@ -108,7 +110,9 @@ class Stagehand_LegacyError_PEARError
     public static function disableConversion()
     {
         $oldErrorReportingLevel = error_reporting(error_reporting() & ~E_STRICT);
+        Stagehand_LegacyError_PHPError::enableConversion(error_reporting());
         PEAR::staticPopErrorHandling();
+        Stagehand_LegacyError_PHPError::disableConversion();
         error_reporting($oldErrorReportingLevel);
     }
 

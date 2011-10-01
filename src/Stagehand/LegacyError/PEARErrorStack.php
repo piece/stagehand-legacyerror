@@ -36,7 +36,9 @@
  */
 
 $Stagehand_LegacyError_PEARErrorStack_oldErrorReportingLevel = error_reporting(error_reporting() & ~E_STRICT);
+Stagehand_LegacyError_PHPError::enableConversion(error_reporting());
 require_once 'PEAR/ErrorStack.php';
+Stagehand_LegacyError_PHPError::disableConversion();
 error_reporting($Stagehand_LegacyError_PEARErrorStack_oldErrorReportingLevel);
 unset($Stagehand_LegacyError_PEARErrorStack_oldErrorReportingLevel);
 
